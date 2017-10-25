@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.design.widget.TextInputEditText
+import android.view.View
 import br.com.mirabilis.oauth2authentication.R
 import br.com.mirabilis.oauth2authentication.base.BaseMVPActivity
 import br.com.mirabilis.oauth2authentication.screen.home.HomeActivity
@@ -24,6 +25,8 @@ class LoginActivity : BaseMVPActivity<LoginContract.LoginView, LoginContract.Log
 
         btnSign.setOnClickListener {
             if(isValid(txtEmail, txtPassword)){
+                loading(true)
+
                 presenter.login(txtEmail.text.toString(), txtPassword.text.toString())
             }
         }
@@ -38,13 +41,32 @@ class LoginActivity : BaseMVPActivity<LoginContract.LoginView, LoginContract.Log
     override fun onSuccess() {
         val intent = Intent(this, HomeActivity::class.java)
         startActivity(intent)
+        finish()
+    }
+
+    private fun loading(value: Boolean){
+        if(value) progressBar.visibility = View.VISIBLE
+        else progressBar.visibility = View.GONE
+
+        if(!value){
+            txtEmail.text.clear()
+            txtPassword.text.clear()
+        }
+
+        if(!value) inputLayoutEmail.visibility = View.VISIBLE
+        else inputLayoutEmail.visibility = View.GONE
+
+        if(!value) inputLayoutPassword.visibility = View.VISIBLE
+        else inputLayoutPassword.visibility = View.GONE
     }
 
     override fun onFailed(e: String) {
+        loading(false)
         Snackbar.make(container, e, Snackbar.LENGTH_LONG)
     }
 
     override fun onError(e: Throwable) {
+        loading(false)
         Snackbar.make(container, e.message.toString(), Snackbar.LENGTH_LONG)
     }
 }

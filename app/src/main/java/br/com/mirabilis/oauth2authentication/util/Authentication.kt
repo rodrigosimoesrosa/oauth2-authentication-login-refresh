@@ -60,4 +60,10 @@ object Authentication {
             throw WithoutAuthenticatedException()
         }
     }
+
+    fun delete(context: Context) {
+        val preferences = context.getSharedPreferences(authentication, Context.MODE_PRIVATE)
+        val editor = preferences.edit()
+        editor.remove(token).apply()
+    }
 }

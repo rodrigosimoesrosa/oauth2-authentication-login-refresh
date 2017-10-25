@@ -17,5 +17,7 @@
     <string name="auth_error">Has occurred a error on authentication!</string>
     <string name="auth_invalid">User or password could be wrong!</string>
     <string name="authenticating">Authenticating ...</string>
+    <string name="cards_invalid">Invalid cards</string>
+    <string name="card_format_error">Has ocurred an error on format data</string>
 
 </resources>

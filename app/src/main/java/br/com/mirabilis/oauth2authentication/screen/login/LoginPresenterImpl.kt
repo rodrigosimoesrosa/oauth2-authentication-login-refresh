@@ -13,15 +13,15 @@ class LoginPresenterImpl : BaseMVPPresenterImpl<LoginContract.LoginView>(),
     private var authFetcher: AuthFetcher.AuthFetcherImpl?= null
 
     override fun login(email: String, password: String) {
-        authFetcher = AuthFetcher.AuthFetcherImpl(context, object : AuthFetcher.Listener {
+        authFetcher = AuthFetcher.AuthFetcherImpl(getContext(), object : AuthFetcher.Listener {
             override fun onSuccess(token: Token?) {
                 if(token == null) {
                     view?.let { view -> call(view,
-                            context.getString(R.string.auth_invalid),
+                            getContext().getString(R.string.auth_invalid),
                             view::onFailed)
                     }
                 } else {
-                    Authentication.save(context, token)
+                    Authentication.save(getContext(), token)
                     view?.let { view -> call(view, view::onSuccess)}
                 }
             }

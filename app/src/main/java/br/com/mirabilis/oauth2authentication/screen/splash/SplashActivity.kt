@@ -21,11 +21,14 @@ class SplashActivity: BaseMVPActivity<SplashContract.SplashView,
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_splash)
+
+        presenter.isAuthenticated()
     }
 
     override fun onSuccess() {
         val intent = Intent(this, HomeActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
     override fun onMessage(e: String) {
@@ -39,6 +42,7 @@ class SplashActivity: BaseMVPActivity<SplashContract.SplashView,
     private fun showLogin() {
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
     override fun onError(e: Throwable) {

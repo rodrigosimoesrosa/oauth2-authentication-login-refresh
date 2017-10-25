@@ -14,14 +14,14 @@ class SplashPresenterImpl : BaseMVPPresenterImpl<SplashContract.SplashView>(),
 
     override fun isAuthenticated() {
         try {
-            if(Authentication.isAuthenticated(context)){
+            if(Authentication.isAuthenticated(getContext())){
                 view?.let { view -> call(view, view::onSuccess) }
             } else {
                 view?.let { view -> call(view,
-                        context.getString(R.string.authenticating),
+                        getContext().getString(R.string.authenticating),
                         view::onMessage)
                 }
-                refreshFetcher = RefreshFetcher.RefreshFetcherImpl(context,
+                refreshFetcher = RefreshFetcher.RefreshFetcherImpl(getContext(),
                         object : RefreshFetcher.Listener {
 
                             override fun onSuccess(token: Token?) {
@@ -31,7 +31,7 @@ class SplashPresenterImpl : BaseMVPPresenterImpl<SplashContract.SplashView>(),
                                     /**
                                      * Do something like call api
                                      */
-                                    Authentication.save(context, token)
+                                    Authentication.save(getContext(), token)
                                     view?.let { view -> call(view, view::onSuccess) }
                                 }
                             }
@@ -40,7 +40,7 @@ class SplashPresenterImpl : BaseMVPPresenterImpl<SplashContract.SplashView>(),
                                 view?.let { view -> call(view, throwable, view::onError) }
                             }
                         })
-                refreshFetcher?.refresh(Refresh(Authentication.getRefresh(context)))
+                refreshFetcher?.refresh(Refresh(Authentication.getRefresh(getContext())))
             }
         } catch (e: Authentication.WithoutAuthenticatedException) {
             view?.let { view -> call(view, view::onLogin) }
