@@ -10,11 +10,13 @@ import br.com.mirabilis.oauth2authentication.model.card.Card
 /**
  * Created by rodrigosimoesrosa
  */
-class GameListAdapter(private var context: Context, private var lists: List<Card>, private val itemClick: (Card) -> Unit)
+class CardListAdapter(private var context: Context,
+                      private var lists: List<Card>,
+                      private val itemClick: (Card) -> Unit)
     : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder? {
-        return GameItem(LayoutInflater.from(context).
+        return CardItem(LayoutInflater.from(context).
                 inflate(R.layout.card_list_item, parent, false), itemClick)
     }
 
@@ -23,6 +25,6 @@ class GameListAdapter(private var context: Context, private var lists: List<Card
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) {
-        (holder as GameItem).bind(lists[position])
+        (holder as CardItem).bind(lists[position])
     }
 }
