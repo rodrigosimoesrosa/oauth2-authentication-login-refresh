@@ -1,6 +1,7 @@
 package br.com.mirabilis.oauth2authentication.base
 
 import android.app.Activity
+import android.content.Context
 import android.support.v4.app.Fragment
 
 /**
@@ -30,5 +31,11 @@ open class BaseMVPPresenterImpl<V : BaseMVPView> : BaseMVPPresenter<V> {
             is Fragment -> (view as Fragment).activity.runOnUiThread { function(parameter) }
             is Activity -> (view as Activity).runOnUiThread { function(parameter) }
         }
+    }
+
+    protected val context: Context = when(view){
+        is Fragment -> (view as Fragment).activity
+        is Activity -> (view as Activity)
+        else -> throw Exception()
     }
 }

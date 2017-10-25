@@ -14,5 +14,6 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="auth_error">Has occurred a error on authentication!</string>
 
 </resources>

@@ -9,8 +9,8 @@ import br.com.mirabilis.oauth2authentication.base.BaseMVPView
 object LoginContract {
 
     interface LoginView : BaseMVPView {
-        fun onLogged()
-        fun onLoginError(e: Exception)
+        fun onLogged(success: Boolean)
+        fun onLoginError(e: Throwable?)
     }
 
     interface LoginPresenter : BaseMVPPresenter<LoginView> {
