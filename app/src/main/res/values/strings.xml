@@ -15,5 +15,6 @@
         completions."
     </string>
     <string name="auth_error">Has occurred a error on authentication!</string>
+    <string name="auth_invalid">User or password could be wrong!</string>
 
 </resources>

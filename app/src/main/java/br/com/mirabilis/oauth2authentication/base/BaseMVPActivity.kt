@@ -13,7 +13,6 @@ abstract class BaseMVPActivity<in V : BaseMVPView, P : BaseMVPPresenter<V>>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         presenter.attachView(this as V)
     }
 

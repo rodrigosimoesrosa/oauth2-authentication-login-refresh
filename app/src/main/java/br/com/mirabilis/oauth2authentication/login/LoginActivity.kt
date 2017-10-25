@@ -35,12 +35,16 @@ class LoginActivity : BaseMVPActivity<LoginContract.LoginView, LoginContract.Log
         return true
     }
 
-    override fun onLogged() {
+    override fun onSuccess() {
         val intent = Intent(this, HomeActivity::class.java)
         startActivity(intent)
     }
 
-    override fun onLoginError(e: Exception) {
+    override fun onFailed(e: String) {
+        Snackbar.make(container, e, Snackbar.LENGTH_LONG)
+    }
+
+    override fun onError(e: Throwable) {
         Snackbar.make(container, e.message.toString(), Snackbar.LENGTH_LONG)
     }
 }
