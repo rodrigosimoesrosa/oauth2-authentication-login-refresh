@@ -1,4 +1,4 @@
-package br.com.mirabilis.oauth2authentication.login
+package br.com.mirabilis.oauth2authentication.screen.login
 
 import br.com.mirabilis.oauth2authentication.util.Authentication
 import br.com.mirabilis.oauth2authentication.R

@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".splash.SplashActivity"
+            android:name="br.com.mirabilis.oauth2authentication.screen.splash.SplashActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,9 +21,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".login.LoginActivity"/>
+        <activity android:name="br.com.mirabilis.oauth2authentication.screen.login.LoginActivity"/>
 
-        <activity android:name=".home.HomeActivity"/>
+        <activity android:name="br.com.mirabilis.oauth2authentication.screen.home.HomeActivity"/>
     </application>
 
 </manifest>

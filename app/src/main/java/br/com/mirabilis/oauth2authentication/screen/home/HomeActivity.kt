@@ -1,4 +1,4 @@
-package br.com.mirabilis.oauth2authentication.home
+package br.com.mirabilis.oauth2authentication.screen.home
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity

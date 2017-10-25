@@ -1,4 +1,4 @@
-package br.com.mirabilis.oauth2authentication.splash
+package br.com.mirabilis.oauth2authentication.screen.splash
 
 import br.com.mirabilis.oauth2authentication.util.Authentication
 import br.com.mirabilis.oauth2authentication.R

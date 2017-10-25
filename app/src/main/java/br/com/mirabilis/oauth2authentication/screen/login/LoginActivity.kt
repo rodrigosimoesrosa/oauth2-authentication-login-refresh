@@ -1,4 +1,4 @@
-package br.com.mirabilis.oauth2authentication.login
+package br.com.mirabilis.oauth2authentication.screen.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,7 @@ import android.support.design.widget.Snackbar
 import android.support.design.widget.TextInputEditText
 import br.com.mirabilis.oauth2authentication.R
 import br.com.mirabilis.oauth2authentication.base.BaseMVPActivity
-import br.com.mirabilis.oauth2authentication.home.HomeActivity
+import br.com.mirabilis.oauth2authentication.screen.home.HomeActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
 /**
