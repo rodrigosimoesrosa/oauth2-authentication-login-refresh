@@ -4,7 +4,7 @@ import br.com.mirabilis.oauth2authentication.util.Authentication
 import br.com.mirabilis.oauth2authentication.R
 import br.com.mirabilis.oauth2authentication.api.auth.RefreshFetcher
 import br.com.mirabilis.oauth2authentication.base.BaseMVPPresenterImpl
-import br.com.mirabilis.oauth2authentication.model.oauth.AuthRefresh
+import br.com.mirabilis.oauth2authentication.model.oauth.request.Refresh
 import br.com.mirabilis.oauth2authentication.model.oauth.Token
 
 class SplashPresenterImpl : BaseMVPPresenterImpl<SplashContract.SplashView>(),
@@ -40,7 +40,7 @@ class SplashPresenterImpl : BaseMVPPresenterImpl<SplashContract.SplashView>(),
                                 view?.let { view -> call(view, throwable, view::onError) }
                             }
                         })
-                refreshFetcher?.refresh(AuthRefresh(Authentication.getRefresh(context)))
+                refreshFetcher?.refresh(Refresh(Authentication.getRefresh(context)))
             }
         } catch (e: Authentication.WithoutAuthenticatedException) {
             view?.let { view -> call(view, view::onLogin) }

@@ -1,4 +1,4 @@
-package br.com.mirabilis.oauth2authentication.model.oauth
+package br.com.mirabilis.oauth2authentication.model.oauth.request
 
 import java.io.Serializable
 

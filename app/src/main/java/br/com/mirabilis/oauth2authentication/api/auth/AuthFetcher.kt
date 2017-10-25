@@ -4,7 +4,7 @@ import android.content.Context
 import br.com.mirabilis.oauth2authentication.R
 import br.com.mirabilis.oauth2authentication.api.APISettings
 import br.com.mirabilis.oauth2authentication.api.base.APICreator
-import br.com.mirabilis.oauth2authentication.model.oauth.Auth
+import br.com.mirabilis.oauth2authentication.model.oauth.request.Auth
 import br.com.mirabilis.oauth2authentication.model.oauth.Token
 import retrofit2.Call
 import retrofit2.Callback

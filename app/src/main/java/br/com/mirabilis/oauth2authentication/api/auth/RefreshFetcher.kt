@@ -4,7 +4,7 @@ import android.content.Context
 import br.com.mirabilis.oauth2authentication.R
 import br.com.mirabilis.oauth2authentication.api.APISettings
 import br.com.mirabilis.oauth2authentication.api.base.APICreator
-import br.com.mirabilis.oauth2authentication.model.oauth.AuthRefresh
+import br.com.mirabilis.oauth2authentication.model.oauth.request.Refresh
 import br.com.mirabilis.oauth2authentication.model.oauth.Token
 import retrofit2.Call
 import retrofit2.Callback
@@ -20,7 +20,7 @@ object RefreshFetcher {
 
         private var callback: Call<Token>? = null
 
-        fun refresh(refresh: AuthRefresh) {
+        fun refresh(refresh: Refresh) {
             val authFetcher = APICreator(AuthAPI::class.java, APISettings.base).generate()
             callback = authFetcher.refresh(refresh)
             callback?.enqueue(object : Callback<Token> {

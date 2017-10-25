@@ -4,7 +4,7 @@ import br.com.mirabilis.oauth2authentication.util.Authentication
 import br.com.mirabilis.oauth2authentication.R
 import br.com.mirabilis.oauth2authentication.api.auth.AuthFetcher
 import br.com.mirabilis.oauth2authentication.base.BaseMVPPresenterImpl
-import br.com.mirabilis.oauth2authentication.model.oauth.Auth
+import br.com.mirabilis.oauth2authentication.model.oauth.request.Auth
 import br.com.mirabilis.oauth2authentication.model.oauth.Token
 
 class LoginPresenterImpl : BaseMVPPresenterImpl<LoginContract.LoginView>(),
