@@ -1,8 +1,10 @@
 package br.com.mirabilis.oauth2authentication.login
 
+import br.com.mirabilis.oauth2authentication.util.Authentication
 import br.com.mirabilis.oauth2authentication.R
 import br.com.mirabilis.oauth2authentication.api.auth.AuthFetcher
 import br.com.mirabilis.oauth2authentication.base.BaseMVPPresenterImpl
+import br.com.mirabilis.oauth2authentication.model.oauth.Auth
 import br.com.mirabilis.oauth2authentication.model.oauth.Token
 
 class LoginPresenterImpl : BaseMVPPresenterImpl<LoginContract.LoginView>(),
@@ -19,7 +21,7 @@ class LoginPresenterImpl : BaseMVPPresenterImpl<LoginContract.LoginView>(),
                             view::onFailed)
                     }
                 } else {
-                    //TODO save token
+                    Authentication.save(context, token)
                     view?.let { view -> call(view, view::onSuccess)}
                 }
             }
@@ -27,7 +29,7 @@ class LoginPresenterImpl : BaseMVPPresenterImpl<LoginContract.LoginView>(),
                 view?.let { view -> call(view, throwable, view::onError) }
             }
         })
-        authFetcher?.auth(email, password)
+        authFetcher?.auth(Auth(email, password))
     }
 
     override fun cancel() {
