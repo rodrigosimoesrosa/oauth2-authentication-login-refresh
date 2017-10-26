@@ -24,7 +24,7 @@ class LoginActivity : BaseMVPActivity<LoginContract.LoginView, LoginContract.Log
         setContentView(R.layout.activity_login)
 
         btnSign.setOnClickListener {
-            if(isValid(txtEmail, txtPassword)){
+            if(isValid()){
                 loading(true)
 
                 presenter.login(txtEmail.text.toString(), txtPassword.text.toString())
@@ -32,7 +32,7 @@ class LoginActivity : BaseMVPActivity<LoginContract.LoginView, LoginContract.Log
         }
     }
 
-    private fun isValid(txtEmail: TextInputEditText?, txtPassword: TextInputEditText?): Boolean {
+    private fun isValid(): Boolean {
         if(txtEmail?.text.toString().isNullOrEmpty()) return false
         if(txtPassword?.text.toString().isNullOrEmpty()) return false
         return true
