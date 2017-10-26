@@ -10,5 +10,4 @@ data class Token(val scope: String,
                  var expires_in: Long,
                  val refresh_token: String,
                  val id_token: String,
-                 val access_token: String,
-                 val id_user: String) : Serializable
+                 val access_token: String) : Serializable
